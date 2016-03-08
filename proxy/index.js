@@ -1,0 +1,1 @@
+exports.Story = require('./story');

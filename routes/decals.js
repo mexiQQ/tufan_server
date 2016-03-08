@@ -57,7 +57,7 @@ router.get('/', function(req, res, next) {
         "title":"多啦A梦",
         "num":1,
         "feature":"duola",
-        "first":"",
+        "first":"http://tufan.b0.upaiyun.com/duola/duola.png",
         "images":[
           "http://tufan.b0.upaiyun.com/duola/duola.png",
         ]
