@@ -11,7 +11,14 @@ exports.createAndSave = function(udid,desc,imageUrl,fn){
 }
 
 exports.getStoriesList = function(first,maxCount,fn){
-  Story.find({deleted:false},{},{ skip:first,limit:maxCount,sort:"-is_top -create_date" },function(err,stories){
+  var skip;
+  if(first <= 0){
+    skip = 0;
+  }else{
+    skip = first - 1; 
+  }
+
+  Story.find({deleted:false,isCheck:true},{},{ skip:skip,limit:maxCount,sort:"-is_top -create_date" },function(err,stories){
     if(err) return fn(err);
     fn(err,stories);
   });
