@@ -10,7 +10,7 @@ exports.list = function(req,res,next){
 }
 
 exports.submit = function(req,res,next){
-  var data = req.body
+  var data = req.body;
   Story.createAndSave(data.udid,data.desc,data.imageUrl,function(err,story){
     if(err) return next(err)
     res.json({status: 0,result:story});
@@ -19,9 +19,28 @@ exports.submit = function(req,res,next){
 
 
 exports.detail = function(req,res,next){
-  var _id = req.params['id']
+  var _id = req.params['id'];
   Story.getDetailStory(_id,function(err,story){
     if(err) return next(err)
     res.json({status:0,result:story});
   })
 }
+
+exports.favor = function(req,res,next){
+  var _id = req.params['id'];
+  var data = req.body;
+  Story.favorStory(_id,data.udid,function(err,result){
+    if(err) return next(err); 
+    res.json({status:0,result:story});
+  });
+}
+
+exports.defavor = function(req,res,next){
+  var _id = req.params['id'];
+  var data = req.body;
+  Story.defavorStory(_id,data.udid,function(err,result){
+    if(err) return next(err); 
+    res.json({status:0,result:result});
+  });
+}
+

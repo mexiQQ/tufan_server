@@ -31,7 +31,8 @@ app.use('/decals',decals);
 app.post('/story/list',story.list);
 app.get('/story/:id',story.detail);
 app.post('/story',story.submit);
-
+app.post('/story/:id/favor',story.favor);
+app.post('/story/:id/defavor',story.defavor);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

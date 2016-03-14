@@ -30,3 +30,18 @@ exports.getDetailStory = function(_id,fn){
     fn(err,story);
   });
 }
+
+exports.favorStory = function(_id,udid,fn){
+  Story.update({'_id':_id},{'$inc':{'favor_count':1},'$push':{'favor_udid':udid}},function(err,result){
+    if(err) return fn(err);
+    fn(null,result);
+  })
+}
+
+exports.defavorStory = function(_id,udid,fn){
+  Story.update({'_id':_id},{'$inc':{'favor_count':-1},'$pull':{'favor_udid':udid}},function(err,result){
+    if(err) return fn(err);
+    fn(null,result);
+  })
+}
+
