@@ -31,7 +31,7 @@ exports.favor = function(req,res,next){
   var data = req.body;
   Story.favorStory(_id,data.udid,function(err,result){
     if(err) return next(err); 
-    res.json({status:0,result:story});
+    res.json({status:0,result:result});
   });
 }
 
