@@ -26,13 +26,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/decals',decals);
 
-app.post('/story/list',story.list);
-app.get('/story/:id',story.detail);
-app.post('/story',story.submit);
-app.post('/story/:id/favor',story.favor);
-app.post('/story/:id/defavor',story.defavor);
+app.use('/api/v1/decals',decals);
+app.post('/api/v1/story/list',story.list);
+app.get('/api/v1/story/:id',story.detail);
+app.post('/api/v1/story',story.submit);
+app.post('/api/v1/story/:id/favor',story.favor);
+app.post('/api/v1/story/:id/defavor',story.defavor);
+
+app.get('/story/:id',story.detailView);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

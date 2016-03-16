@@ -26,6 +26,14 @@ exports.detail = function(req,res,next){
   })
 }
 
+exports.detailView = function(req,res,next){
+  var _id = req.params['id'];
+  Story.getDetailStory(_id,function(err,story){
+    if(err) return next(err)
+    res.render('story/story', { recommend: story.recommend, desc: story.desc , imageUrl: story.imageUrl , favor_count: story.favor_count });
+  });
+}
+
 exports.favor = function(req,res,next){
   var _id = req.params['id'];
   var data = req.body;
