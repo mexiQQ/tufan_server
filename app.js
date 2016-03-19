@@ -24,9 +24,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
-
 app.use('/api/v1/decals',decals);
 app.post('/api/v1/story/list',story.list);
 app.get('/api/v1/story/:id',story.detail);
