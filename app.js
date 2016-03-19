@@ -24,12 +24,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api/v1/decals',decals);
-app.post('/api/v1/story/list',story.list);
-app.get('/api/v1/story/:id',story.detail);
-app.post('/api/v1/story',story.submit);
-app.post('/api/v1/story/:id/favor',story.favor);
-app.post('/api/v1/story/:id/defavor',story.defavor);
+app.use('/v1/decals',decals);
+app.post('/v1/story/list',story.list);
+app.get('/v1/story/:id',story.detail);
+app.post('/v1/story',story.submit);
+app.post('/v1/story/:id/favor',story.favor);
+app.post('/v1/story/:id/defavor',story.defavor);
 
 app.get('/story/:id',story.detailView);
 
