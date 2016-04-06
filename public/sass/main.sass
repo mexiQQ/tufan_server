@@ -1,0 +1,185 @@
+//@mixin for keyframe
+=keyframes($name)
+	@-webkit-keyframes #{$name}
+		@content
+	@-moz-keyframes #{$name}
+		@content
+	@-ms-keyframes #{$name}
+		@content
+	@keyframes #{$name}
+		@content
+
+//@mixin for animation
+=animation($content)
+	-webkit-animation: $content
+	-moz-animation: $content
+	-o-animation: $content
+	animation: $content
+
+//@mixin for transform
+=transform($content)
+	-webkit-transform: $content
+	-moz-transform: $content
+	-o-transform: $content
+	transform: $content
+
+
+body
+	background-color: #EFEFF4
+	padding-bottom: 65px
+.container
+	@media (min-width: 1200px)
+		width: 650px
+	@media (min-width: 992px)
+		width: 650px
+	@media (min-width: 768px)
+		width: 650px
+
+//--------------
+// common
+//--------------
+a:focus, a:hover
+	text-decoration: none
+	cursor: pointer
+.box_center
+	display: -webkit-box
+	display: -ms-flexbox
+	display: -webkit-flex
+	display: flex
+	-webkit-box-pack: center
+	-ms-flex-pack: center
+	-webkit-justify-content: center
+	justify-content: center
+	-webkit-box-align: center
+	-ms-flex-align: center
+	-webkit-align-items: center
+	align-items: center
+	overflow: visible
+	-webkit-box-flex: 1
+	-ms-flex: 1
+	-webkit-box-orient: vertical
+	-moz-box-orient: vertical
+	-ms-flex-direction: column
+	-webkit-flex-direction: column
+	flex-direction: column
+
+
+//--------------
+// download bar
+//--------------
+.tf_download_bar
+	width: 100%
+	background-color: #F7F7F8
+	padding-top: 5px
+	padding-bottom: 5px
+	align-items: center
+	position: fixed
+	bottom: 0
+	z-index: 999
+	border-top:  1px solid rgba(225, 225, 225, 0.60)
+	p
+		margin-bottom: 2px
+	.logo
+		margin-right: 5px
+		img
+			width: 44px
+			height: 44px
+	.app_name
+		font-weight: 700
+		font-size: 16px
+	.app_slogan
+		font-size: 12px
+	.download
+		height: 40px
+		display: -webkit-box
+		display: -ms-flexbox
+		display: -webkit-flex
+		display: flex
+		-webkit-box-pack: center
+		-ms-flex-pack: center
+		-webkit-justify-content: center
+		justify-content: center
+		-webkit-box-align: center
+		-ms-flex-align: center
+		-webkit-align-items: center
+		align-items: center
+		overflow: visible
+		-webkit-box-flex: 1
+		-ms-flex: 1
+		-webkit-box-orient: vertical
+		-moz-box-orient: vertical
+		-ms-flex-direction: column
+		-webkit-flex-direction: column
+		flex-direction: column
+		a
+			padding: 5px 10px
+			color: #F82026
+			border-radius: 5px
+			border: 1px #F82026 solid
+
+//--------------
+// main
+//--------------
+.main
+	padding-left: 10px
+	padding-right: 10px
+	margin-top: 10px
+	border-radius: 5px
+
+//--------------
+// essay
+//--------------
+.essay
+	background-color: #fff
+	padding-top: 10px
+	padding-bottom: 10px
+	margin-bottom: 10px
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3)
+	.essay_content
+		padding: 5px 0
+		border-bottom:  1px solid rgba(225, 225, 225, 0.60)
+		color: #6D6D72
+		font-size: 14px
+	.essay_recommend
+		padding: 5px 0
+		font-size: 16px
+	.essay_img
+		img
+			width: 100%
+
+
+//--------------
+// loading
+//--------------
+.essay_loading
+	width: 100%
+	height: 29px
+	text-align: center
+	padding: 10px 0
+	box-sizing: content-box
+	.loading
+		width: 29px
+		height: 29px
+		margin: 0 auto
+		border-radius: 50%
+		border-top-color: transparent
+		border-left-color: transparent
+		border-right-color: transparent
+		box-shadow: 2px 2px 1px rgb(0,0,0)
+		+animation(Circles 0.5s infinite linear)
+
++keyframes(Circles)
+	from
+		+transform(rotate(0))
+	to
+		+transform(rotate(360deg))
+
+
+
+
+
+
+
+
+
+

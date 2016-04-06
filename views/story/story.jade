@@ -1,37 +1,46 @@
 doctype
-html( lang="en" )
+html( lang='en' )
 head
-	title 用长图，讲故事
+	title #{recommend}
 	meta( charset='utf-8' )
 	meta( http-equiv='X-UA-Compatible', content='IE=edge' )
 	meta( name='viewport', content='width=device-width, initial-scale=1.0' )
-	meta( name='description', content='Baking Bootstrap Snippets with Jade' )
+	meta( name='description', content='图饭-用长图，说故事.长图制作工具' )
 
-	link(href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css", rel="stylesheet")
-	link(href="http://tufan.b0.upaiyun.com/resource/css/main.css", rel="stylesheet")
+	link(href='http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css', rel='stylesheet')
+	link(href='/public/stylesheets/mini/all.min.css', rel='stylesheet')
 
 body
+	//- 供微信抓取的缩略图
+	img.hidden( src = '/public/images/share.png' )
+
 	//- tf_download_bar
 	.tf_download_bar
 		.container
 			.row
-				.col-md-10.col-xs-7
-					ul.media-list
-						li.media
-							.media-left: img.logo.img-rounded.media-object( src = 'http://tufan.b0.upaiyun.com/resource/logo/logo.png' )
-							.media-body
-								p.app_name 图饭
-								p.app_slogan 用长图，说故事 
-					
-				.col-md-2.col-xs-5
-					.download
-						a 立即打开
+				.col-md-12.col-xs-12
+					.pull-left.logo: img.img-rounded.media-object( src = '/public/images/logo.png' )
+					.pull-left
+						p.app_name 图饭
+						p.app_slogan 用长图，说故事
+					.pull-right.download
+						a(href='http://tufan.pics') 立即打开
 	//- main
 	.container
 		.row.main
 			//- essay
 			.col-md-12.essay
-				.essay_recommend <strong>饭仔荐语：</strong>#{recommend}
-				.essay_content <strong>作者：</strong>#{desc}
+				.essay_recommend
+					strong 饭仔荐语：
+					span.ctx #{recommend}
+				.essay_content
+					strong 作者：
+					span.ctx #{desc}
+				.essay_loading: .loading
 				.essay_img
-						img.logo.img-rounded.media-object( src = "#{imageUrl}" )
+					img.img-rounded.media-object.lazy( src='#{imageUrl}')
+					//img.img-rounded.media-object( src='/public/images/img.jpg')
+
+	script(src='http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js')
+	script(src='http://qzonestyle.gtimg.cn/qzone/qzact/common/share/share.js')
+	script(src='/public/javascripts/mini/all.min.js')
