@@ -17,7 +17,7 @@ RUN apt-get install -y python
 
 # 配置环境变量
 ENV NVM_DIR /usr/local/nvm  
-ENV NODE_VERSION 5.6.0 
+ENV NODE_VERSION 0.10.40 
 ENV WORK_DIR /workspace
 
 # 下载和配置Node.js环境
@@ -42,5 +42,5 @@ WORKDIR $WORK_DIR
 # 公开镜像的80端口
 EXPOSE 3000
 
-CMD npm install & gulp & pm2 start /workspace/bin/www
+CMD bash 
 
